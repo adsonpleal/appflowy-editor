@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/foundation.dart';
 
@@ -9,11 +7,11 @@ String shortcutTooltips(
   String? linuxString,
 ) {
   if (kIsWeb) return '';
-  if (Platform.isMacOS && macOSString != null) {
+  if (PlatformExtension.isMacOS && macOSString != null) {
     return '\n$macOSString';
-  } else if (Platform.isWindows && windowsString != null) {
+  } else if (PlatformExtension.isWindows && windowsString != null) {
     return '\n$windowsString';
-  } else if (Platform.isLinux && linuxString != null) {
+  } else if (PlatformExtension.isLinux && linuxString != null) {
     return '\n$linuxString';
   }
   return '';

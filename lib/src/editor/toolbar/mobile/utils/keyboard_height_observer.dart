@@ -1,7 +1,7 @@
-import 'dart:io';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:keyboard_height_plugin/keyboard_height_plugin.dart';
+
+import '../../../util/platform_extension.dart';
 
 typedef KeyboardHeightCallback = void Function(double height);
 
@@ -11,7 +11,7 @@ class KeyboardHeightObserver {
   static int androidSDKVersion = -1;
 
   KeyboardHeightObserver._() {
-    if (Platform.isAndroid && androidSDKVersion == -1) {
+    if (PlatformExtension.isAndroid && androidSDKVersion == -1) {
       DeviceInfoPlugin().androidInfo.then(
             (value) => androidSDKVersion = value.version.sdkInt,
           );

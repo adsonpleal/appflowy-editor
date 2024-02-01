@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:appflowy_editor/src/editor/editor_component/service/selection/mobile_magnifier.dart';
@@ -545,7 +544,7 @@ class _MobileSelectionServiceWidgetState
   }
 
   void _onLongPressStart(LongPressStartDetails details) {
-    if (!Platform.isAndroid) {
+    if (!PlatformExtension.isAndroid) {
       return;
     }
 

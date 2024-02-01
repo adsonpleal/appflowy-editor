@@ -57,6 +57,7 @@ dev_dependencies:
   network_image_mock: ^2.1.1
   mockito: ^5.4.1
   leak_tracker: 9.0.16
+  meta: ^1.10.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
