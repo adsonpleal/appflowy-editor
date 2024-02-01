@@ -7,47 +7,47 @@ void main() {
   group('platform extension', () {
     group('when isWeb = true', () {
       _testWeb('test isMacOS', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isMacOS,
           expected: false,
         );
       });
 
       _testWeb('test isIOS', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isIOS,
           expected: false,
         );
       });
 
       _testWeb('test isAndroid', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isAndroid,
           expected: false,
         );
       });
 
       _testWeb('test isWindows', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isWindows,
           expected: false,
         );
       });
 
       _testWeb('test isLinux', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isLinux,
           expected: false,
         );
       });
 
       _testWeb('test isWebOnMacOS', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
-        expect(
-          PlatformExtension.isWebOnMacOS,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.macOS,
+          actual: () => PlatformExtension.isWebOnMacOS,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.macOS,
           actual: () => PlatformExtension.isWebOnMacOS,
           expected: false,
@@ -55,12 +55,12 @@ void main() {
       });
 
       _testWeb('test isWebOnWindows', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.windows;
-        expect(
-          PlatformExtension.isWebOnWindows,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.windows,
+          actual: () => PlatformExtension.isWebOnWindows,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.windows,
           actual: () => PlatformExtension.isWebOnWindows,
           expected: false,
@@ -68,12 +68,12 @@ void main() {
       });
 
       _testWeb('test isWebOnLinux', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-        expect(
-          PlatformExtension.isWebOnLinux,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.linux,
+          actual: () => PlatformExtension.isWebOnLinux,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.linux,
           actual: () => PlatformExtension.isWebOnLinux,
           expected: false,
@@ -81,28 +81,28 @@ void main() {
       });
 
       _testWeb('test isDesktopOrWeb', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isDesktopOrWeb,
           expected: true,
         );
       });
 
       _testWeb('test isDesktop', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isDesktop,
           expected: false,
         );
       });
 
       _testWeb('test isMobile', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isMobile,
           expected: false,
         );
       });
 
       _testWeb('test isNotMobile', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isNotMobile,
           expected: false,
         );
@@ -111,12 +111,12 @@ void main() {
 
     group('when isWeb = false', () {
       _testNonWeb('test isMacOS', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
-        expect(
-          PlatformExtension.isMacOS,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.macOS,
+          actual: () => PlatformExtension.isMacOS,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.macOS,
           actual: () => PlatformExtension.isMacOS,
           expected: false,
@@ -124,12 +124,12 @@ void main() {
       });
 
       _testNonWeb('test isIOS', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-        expect(
-          PlatformExtension.isIOS,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.iOS,
+          actual: () => PlatformExtension.isIOS,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.iOS,
           actual: () => PlatformExtension.isIOS,
           expected: false,
@@ -137,12 +137,12 @@ void main() {
       });
 
       _testNonWeb('test isAndroid', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.android;
-        expect(
-          PlatformExtension.isAndroid,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.android,
+          actual: () => PlatformExtension.isAndroid,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.android,
           actual: () => PlatformExtension.isAndroid,
           expected: false,
@@ -150,12 +150,12 @@ void main() {
       });
 
       _testNonWeb('test isWindows', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.windows;
-        expect(
-          PlatformExtension.isWindows,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.windows,
+          actual: () => PlatformExtension.isWindows,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.windows,
           actual: () => PlatformExtension.isWindows,
           expected: false,
@@ -163,12 +163,12 @@ void main() {
       });
 
       _testNonWeb('test isLinux', () {
-        debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-        expect(
-          PlatformExtension.isLinux,
-          equals(true),
+        _testTargetPlatform(
+          TargetPlatform.linux,
+          actual: () => PlatformExtension.isLinux,
+          expected: true,
         );
-        testAllTargetPlatformsBut(
+        _testAllTargetPlatformsBut(
           TargetPlatform.linux,
           actual: () => PlatformExtension.isLinux,
           expected: false,
@@ -176,21 +176,21 @@ void main() {
       });
 
       _testNonWeb('test isWebOnMacOS', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isWebOnMacOS,
           expected: false,
         );
       });
 
       _testNonWeb('test isWebOnWindows', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isWebOnWindows,
           expected: false,
         );
       });
 
       _testNonWeb('test isWebOnLinux', () {
-        testAllTargetPlatforms(
+        _testAllTargetPlatforms(
           actual: () => PlatformExtension.isWebOnLinux,
           expected: false,
         );
@@ -246,7 +246,7 @@ void main() {
           actual: () => PlatformExtension.isNotMobile,
           expected: true,
         );
-      });      
+      });
     });
   });
 }
@@ -262,20 +262,24 @@ List<TargetPlatform> get _desktopPlatforms => [
       TargetPlatform.linux,
     ];
 
-@isTest
-void _testWeb(String description, void Function() testFn) {
+void _testWebOverride(String description, bool isWeb, void Function() testFn) {
   test(description, () {
-    PlatformExtension.debugIsWebOverride = true;
+    tearDown(() {
+      PlatformExtension.debugIsWebOverride = null;
+    });
+    PlatformExtension.debugIsWebOverride = isWeb;
     testFn();
   });
 }
 
 @isTest
+void _testWeb(String description, void Function() testFn) {
+  _testWebOverride(description, true, testFn);
+}
+
+@isTest
 void _testNonWeb(String description, void Function() testFn) {
-  test(description, () {
-    PlatformExtension.debugIsWebOverride = false;
-    testFn();
-  });
+  _testWebOverride(description, false, testFn);
 }
 
 List<TargetPlatform> _allPlatformsBut(TargetPlatform platform) {
@@ -287,6 +291,9 @@ void _testTargetPlatforms(
   required bool Function() actual,
   required bool expected,
 }) {
+  tearDown(() {
+    debugDefaultTargetPlatformOverride = null;
+  });
   for (final platform in platforms) {
     debugDefaultTargetPlatformOverride = platform;
     expect(
@@ -296,7 +303,19 @@ void _testTargetPlatforms(
   }
 }
 
-void testAllTargetPlatforms({
+void _testTargetPlatform(
+  TargetPlatform platform, {
+  required bool Function() actual,
+  required bool expected,
+}) {
+  _testTargetPlatforms(
+    [platform],
+    actual: actual,
+    expected: expected,
+  );
+}
+
+void _testAllTargetPlatforms({
   required bool Function() actual,
   required bool expected,
 }) {
@@ -307,7 +326,7 @@ void testAllTargetPlatforms({
   );
 }
 
-void testAllTargetPlatformsBut(
+void _testAllTargetPlatformsBut(
   TargetPlatform excludedPlatform, {
   required bool Function() actual,
   required bool expected,

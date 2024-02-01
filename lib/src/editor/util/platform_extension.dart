@@ -3,9 +3,14 @@ import 'package:flutter/foundation.dart';
 abstract class PlatformExtension {
   // Used to test kIsWeb values
   @visibleForTesting
-  static bool debugIsWebOverride = false;
+  static bool? debugIsWebOverride;
 
-  static bool get _isWeb => debugIsWebOverride || kIsWeb;
+  static bool get _isWeb {
+    if (debugIsWebOverride case final override?) {
+      return override;
+    }
+    return kIsWeb;
+  }
 
   /// Returns true if the operating system is macOS and not running on Web platform.
   static bool get isMacOS => _isPlatform(TargetPlatform.macOS);
