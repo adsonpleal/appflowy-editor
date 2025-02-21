@@ -4,10 +4,10 @@ version: 2.3.1
 homepage: https://github.com/AppFlowy-IO/appflowy-editor
 
 topics:
-  - ui
-  - widgets
-  - editor
-  - appflowy
+- ui
+- widgets
+- editor
+- appflowy
 
 platforms:
   android:
@@ -16,6 +16,7 @@ platforms:
   macos:
   windows:
   web:
+
 
 environment:
   sdk: ">=3.1.5 <4.0.0"
@@ -40,7 +41,7 @@ dependencies:
   collection: ^1.17.0
   nanoid: ^1.0.0
   visibility_detector: ^0.4.0+2
-  file_picker: ^6.1.1
+  file_picker: ^9.0.0
   path: ^1.8.0
   path_provider: ^2.0.5
   diff_match_patch: ^0.4.1
@@ -65,11 +66,11 @@ dev_dependencies:
 flutter:
   # To add assets to your package, add an assets section, like this:
   assets:
-    - assets/images/toolbar/
-    - assets/images/selection_menu/
-    - assets/images/image_toolbar/
-    - assets/images/
-    - assets/mobile/toolbar_icons/
+  - assets/images/toolbar/
+  - assets/images/selection_menu/
+  - assets/images/image_toolbar/
+  - assets/images/
+  - assets/mobile/toolbar_icons/
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
